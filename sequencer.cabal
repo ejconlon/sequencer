@@ -1,34 +1,60 @@
-name:                sequencer
-version:             0.1.0.0
-license:             BSD3
-license-file:        LICENSE
-author:              kohlrabi
-maintainer:          kohlrabi@aragonit
-category:            Sound
-build-type:          Simple
-cabal-version:       >=1.10
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           sequencer
+version:        0.1.0.0
+category:       Sound
+author:         kohlrabi
+maintainer:     kohlrabi@aragonit
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
 
 library
-  hs-source-dirs:      src
-  exposed-modules:     Sound.Sequencer.Sequencer
-  build-depends:       base >=4.9 && <5
-                     , modfile
-                     , vty
-                     , RtMidi
-  ghc-options:         -Wall
-  hs-source-dirs:      src
-  default-language:    Haskell2010
-
+  exposed-modules:
+      Main
+      Sound.Sequencer.Editor
+      Sound.Sequencer.Sequencer
+      Sound.Sequencer.Vty
+  other-modules:
+      Paths_sequencer
+  hs-source-dirs:
+      src
+  default-extensions:
+      LambdaCase
+  ghc-options: -Wall
+  build-depends:
+      RtMidi
+    , base >=4.9 && <5
+    , binary
+    , bytestring
+    , modfile
+    , split
+    , vty
+  default-language: Haskell2010
 
 executable sequencer
-  main-is:             Main.hs
-  build-depends:       base >=4.9 && <5
-                     , sequencer
-                     , modfile
-                     , vty
-                     , split
-                     , bytestring
-                     , binary
-  ghc-options:         -threaded
-  hs-source-dirs:      src
-  default-language:    Haskell2010
+  main-is: Main.hs
+  other-modules:
+      Sound.Sequencer.Editor
+      Sound.Sequencer.Sequencer
+      Sound.Sequencer.Vty
+      Paths_sequencer
+  hs-source-dirs:
+      src
+  default-extensions:
+      LambdaCase
+  ghc-options: -threaded
+  build-depends:
+      RtMidi
+    , base >=4.9 && <5
+    , binary
+    , bytestring
+    , modfile
+    , sequencer
+    , split
+    , vty
+  default-language: Haskell2010

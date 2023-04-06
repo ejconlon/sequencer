@@ -12,15 +12,15 @@ packages:
   original:
     hackage: RtMidi-0.5.0.3
 - completed:
-    commit: 4788fb1493238b8bd63c1e4a97f3e6cb519676a5
+    commit: 81b3c8f294d23c19a8428159ee3dedc187255797
     git: git@github.com:ejconlon/modfile.git
     name: modfile
     pantry-tree:
-      sha256: 78bdcf2549bc4ec609854b04af723d89d5587a2316d7c667d572d0f7dfc6666f
-      size: 2459
+      sha256: 4c3ad15ad51051aa65b984e66e6ae1caea8ad2f8273d63e392f2cd91a7a26ba9
+      size: 2588
     version: 0.1.0.0
   original:
-    commit: 4788fb1493238b8bd63c1e4a97f3e6cb519676a5
+    commit: 81b3c8f294d23c19a8428159ee3dedc187255797
     git: git@github.com:ejconlon/modfile.git
 snapshots:
 - completed:

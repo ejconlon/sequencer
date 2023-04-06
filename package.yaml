@@ -1,0 +1,33 @@
+name:                sequencer
+version:             0.1.0.0
+license:             BSD3
+license-file:        LICENSE
+author:              kohlrabi
+maintainer:          kohlrabi@aragonit
+category:            Sound
+
+language:    Haskell2010
+
+dependencies:
+- base >=4.9 && <5
+- binary
+- modfile
+- vty
+- split
+- bytestring
+- RtMidi
+
+default-extensions:
+- LambdaCase
+
+library:
+  source-dirs:      src
+  ghc-options:         -Wall
+
+executables:
+  sequencer:
+    main:             Main.hs
+    dependencies:
+    - sequencer
+    ghc-options:         -threaded
+    source-dirs:      src
