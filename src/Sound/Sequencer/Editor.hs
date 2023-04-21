@@ -1,21 +1,40 @@
 {-# LANGUAGE RecordWildCards #-}
 
-module Sound.Sequencer.Editor where
+module Sound.Sequencer.Editor
+  ( Column (..)
+  , Editor (..)
+  , EditorEvent (..)
+  , edit
+  , loadXM
+  )
+where
 
 import Codec.Tracker.Common
+  ( Note (Note)
+  , Pitch (Pitch)
+  , Tone (A, Asharp, C, Csharp, D, Dsharp, E, F, Fsharp, G, Gsharp)
+  )
 import qualified Codec.Tracker.XM as XM
 import Codec.Tracker.XM.Header (numChannels)
 import Codec.Tracker.XM.Pattern (Cell (..), patternData)
-import Control.Arrow
-import Control.Exception
-import Control.Monad
-import Data.Binary.Get
+import Control.Arrow (Arrow (second))
+import Control.Exception (IOException, try)
+import Control.Monad ()
+import Data.Binary.Get (runGetOrFail)
 import qualified Data.ByteString.Lazy as B
-import Data.Char
-import Data.List.Split
-import Data.Maybe
+import Data.Char (digitToInt, isHexDigit)
+import Data.List.Split (chunksOf)
+import Data.Maybe (fromMaybe)
 import Sound.Sequencer.Sequencer
-import System.IO
+  ( Cell (effectParam, effectType, instrument, note, volume)
+  , Note (Note)
+  , Pitch (Pitch)
+  , Sequencer (patterns)
+  , Tone (A, Asharp, C, Csharp, D, Dsharp, E, F, Fsharp, G, Gsharp)
+  , defaultSeq
+  , emptyCell
+  )
+import System.IO (hPrint, hPutStrLn, stderr)
 
 data Column = NoteCol | InsCol16 | InsCol1 | VolCol16 | VolCol1 | ETCol | EPCol16 | EPCol1
   deriving (Show, Eq, Enum)

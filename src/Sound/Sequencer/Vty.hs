@@ -1,13 +1,77 @@
 {-# LANGUAGE RecordWildCards #-}
 
-module Sound.Sequencer.Vty where
+module Sound.Sequencer.Vty
+  ( run
+  )
+where
 
-import Control.Monad
-import Data.Char
-import Data.Maybe
+import Control.Monad (when)
+import Data.Char (intToDigit)
+import Data.Maybe (fromJust, isNothing)
 import Graphics.Vty
+  ( Event (EvKey)
+  , Image
+  , Key (KChar, KDel, KDown, KEsc, KFun, KLeft, KRight, KUp)
+  , Modifier (MCtrl)
+  , Output (displayBounds)
+  , Vty (nextEvent, outputIface, shutdown, update)
+  , brightWhite
+  , brightYellow
+  , charFill
+  , cyan
+  , defAttr
+  , green
+  , imageHeight
+  , magenta
+  , mkVty
+  , pad
+  , picForImage
+  , red
+  , resizeWidth
+  , reverseVideo
+  , standardIOConfig
+  , string
+  , translateY
+  , withBackColor
+  , withForeColor
+  , withStyle
+  , yellow
+  , (<->)
+  , (<|>)
+  )
 import Sound.Sequencer.Editor
+  ( Column
+      ( EPCol1
+      , EPCol16
+      , ETCol
+      , InsCol1
+      , InsCol16
+      , NoteCol
+      , VolCol1
+      , VolCol16
+      )
+  , Editor (..)
+  , EditorEvent
+    ( AddRow
+    , Edit
+    , JumpDown
+    , JumpLeft
+    , JumpRight
+    , JumpUp
+    , MoveDown
+    , MoveLeft
+    , MoveRight
+    , MoveUp
+    , Quit
+    , RemoveRow
+    , SelectOctave
+    )
+  , edit
+  )
 import Sound.Sequencer.Sequencer
+  ( Cell (effectParam, effectType, instrument, note, volume)
+  , Sequencer (patterns, playing)
+  )
 
 rootImage :: Editor -> Int -> Image
 rootImage Editor {..} h =

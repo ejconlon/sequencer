@@ -1,9 +1,16 @@
-module Main where
+module Main
+  ( main
+  )
+where
 
-import Control.Monad
+import Control.Monad ((<=<))
 import Sound.Sequencer.Editor
-import Sound.Sequencer.Sequencer
-import Sound.Sequencer.Vty
+  ( Column (NoteCol)
+  , Editor (Editor)
+  , loadXM
+  )
+import Sound.Sequencer.Sequencer (defaultSeq)
+import Sound.Sequencer.Vty (run)
 import System.Environment (getArgs)
 
 main :: IO ()

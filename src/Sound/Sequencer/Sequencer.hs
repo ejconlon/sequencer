@@ -1,8 +1,16 @@
-module Sound.Sequencer.Sequencer (Channel (..), Sequencer (..), defaultSeq, emptyCell, module Codec.Tracker.XM.Pattern, module Codec.Tracker.Common) where
+module Sound.Sequencer.Sequencer
+  ( Channel (..)
+  , Sequencer (..)
+  , defaultSeq
+  , emptyCell
+  , module Codec.Tracker.XM.Pattern
+  , module Codec.Tracker.Common
+  )
+where
 
 import Codec.Tracker.Common
 import Codec.Tracker.XM.Pattern (Cell (..), Note (..))
-import Data.Word
+import Data.Word (Word8)
 
 data Channel = Channel
   { channelVolume :: Word8

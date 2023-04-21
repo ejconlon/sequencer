@@ -5,12 +5,12 @@
 
 packages:
 - completed:
-    hackage: RtMidi-0.5.0.3@sha256:12b158bc11101b7f0a6fed4b4991cc9d15388301292337b6a369177812c759ad,3861
+    hackage: RtMidi-0.6.1.0@sha256:8c9694126352ae2b8935554ff25a4f2d8541ec0f39805300c4ca9fd0620604ef,3806
     pantry-tree:
-      sha256: 2e8f8590698e951409fcd344a315f4b382b42a122ad6839f050d7de6bdaf714d
-      size: 906
+      sha256: 406147390d64947da0062a10837108797d0be59cf3157b4e375fa66cd3490e67
+      size: 860
   original:
-    hackage: RtMidi-0.5.0.3
+    hackage: RtMidi-0.6.1.0
 - completed:
     commit: 81b3c8f294d23c19a8428159ee3dedc187255797
     git: git@github.com:ejconlon/modfile.git
@@ -24,7 +24,7 @@ packages:
     git: git@github.com:ejconlon/modfile.git
 snapshots:
 - completed:
-    sha256: 14ca51a9a597c32dd7804c10d079feea3d0ae40c5fbbb346cbd67b3ae49f6d01
-    size: 649598
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/20/17.yaml
-  original: lts-20.17
+    sha256: 9fa4bece7acfac1fc7930c5d6e24606004b09e80aa0e52e9f68b148201008db9
+    size: 649606
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/20/18.yaml
+  original: lts-20.18

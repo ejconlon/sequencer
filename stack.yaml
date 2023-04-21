@@ -1,9 +1,9 @@
-resolver: lts-20.17
+resolver: lts-20.18
 
 packages:
 - .
 
 extra-deps:
-- RtMidi-0.5.0.3
+- RtMidi-0.6.1.0
 - git: git@github.com:ejconlon/modfile.git
   commit: 81b3c8f294d23c19a8428159ee3dedc187255797
